@@ -6,11 +6,13 @@
 //  Copyright (c) 2011 Christian Beer. All rights reserved.
 //
 
-#import "CocoaHTTPServer.h"
+@class HTTPConnection;
+@class HTTPResponse;
+@protocol HTTPResponse;
 
 #import "WebSocketRouteDefinition.h"
 
-typedef NSObject<HTTPResponse>* (^HTTPRequestHandler)(HTTPConnection* connection, NSString *method, NSString *path, NSDictionary *pathParameters, NSDictionary *requestParameters);
+typedef NSObject<HTTPResponse>* (^HTTPRequestHandler)(HTTPConnection* connection, HTTPMessage *request, NSString *method, NSString *path, NSDictionary *pathParameters, NSDictionary *requestParameters);
 typedef BOOL (^HTTPRequestExpectsBodyCallback)(NSString *method, NSString *path, HTTPMessage *request);
 
 @class HTTPRouteDefinition;

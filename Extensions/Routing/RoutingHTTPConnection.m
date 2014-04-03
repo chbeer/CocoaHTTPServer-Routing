@@ -10,6 +10,7 @@
 
 #import "HTTPRouteMapping.h"
 #import "HTTPRouteDefinition.h"
+#import "HTTPMessage.h"
 #import "WebSocketRouteDefinition.h"
 
 #define HTTP_BODY_MAX_MEMORY_SIZE (1024)//(1024 * 1024)
@@ -56,7 +57,7 @@
 {
     HTTPRouteDefinition *route = [[HTTPRouteMapping sharedInstance] routeDefinitionForMethod:method path:path];
     if (route && route.expectsRequestBodyCallback) {
-        return route.expectsRequestBodyCallback(method, path, self.request);
+        return route.expectsRequestBodyCallback(method, path, request);
     }
     
 	if([method isEqualToString:@"POST"] || [method isEqualToString:@"PUT"]) {
@@ -78,11 +79,11 @@
         NSDictionary *pathParameters = [route parsePathParametersFromPath:purePath];
         
         if (route.handler) {
-            result = route.handler(self, method, purePath, pathParameters, requestParameters);
+            result = route.handler(self, request, method, purePath, pathParameters, requestParameters);
         }
         
     } else if ([HTTPRouteMapping sharedInstance].defaultHandler) {
-        result = [HTTPRouteMapping sharedInstance].defaultHandler(self, method, purePath, nil, requestParameters);
+        result = [HTTPRouteMapping sharedInstance].defaultHandler(self, request, method, purePath, nil, requestParameters);
     }
     
     return result;
@@ -95,7 +96,7 @@
         return nil;
     }
     
-    return [route webSocketForRequest:self.request socket:asyncSocket];
+    return [route webSocketForRequest:request socket:asyncSocket];
 }
 
 #pragma mark - POST Support

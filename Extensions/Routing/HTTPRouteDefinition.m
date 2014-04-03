@@ -8,7 +8,7 @@
 
 #import "HTTPRouteDefinition.h"
 
-#import "CocoaHTTPServer.h"
+#import "HTTPServer.h"
 
 
 @interface HTTPRouteDefinition ()

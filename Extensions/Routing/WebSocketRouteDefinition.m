@@ -8,7 +8,7 @@
 
 #import "WebSocketRouteDefinition.h"
 
-#import "CocoaHTTPServer.h"
+#import "HTTPServer.h"
 #import "WebSocket.h"
 
 @interface BlockBasedWebSocket : WebSocket

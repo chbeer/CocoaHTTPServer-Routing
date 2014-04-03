@@ -155,9 +155,56 @@
     
     *purePath = [path substringToIndex:questionMarkRange.location];
     
-    NSDictionary *result = [HTTPConnection parseParams:query];
+    NSDictionary *result = [self parseParams:query];
     
     return result;
+}
+
+#pragma mark - Helper
+
+/** Copied from HTTPConnection. Should be moved to a utility class? */
+- (NSDictionary *)parseParams:(NSString *)query
+{
+	NSArray *components = [query componentsSeparatedByString:@"&"];
+	NSMutableDictionary *result = [NSMutableDictionary dictionaryWithCapacity:[components count]];
+	
+	NSUInteger i;
+	for (i = 0; i < [components count]; i++)
+	{
+		NSString *component = [components objectAtIndex:i];
+		if ([component length] > 0)
+		{
+			NSRange range = [component rangeOfString:@"="];
+			if (range.location != NSNotFound)
+			{
+				NSString *escapedKey = [component substringToIndex:(range.location + 0)];
+				NSString *escapedValue = [component substringFromIndex:(range.location + 1)];
+				
+				if ([escapedKey length] > 0)
+				{
+					CFStringRef k, v;
+					
+					k = CFURLCreateStringByReplacingPercentEscapes(NULL, (__bridge CFStringRef)escapedKey, CFSTR(""));
+					v = CFURLCreateStringByReplacingPercentEscapes(NULL, (__bridge CFStringRef)escapedValue, CFSTR(""));
+					
+					NSString *key, *value;
+					
+					key   = (__bridge_transfer NSString *)k;
+					value = (__bridge_transfer NSString *)v;
+					
+					if (key)
+					{
+						if (value)
+							[result setObject:value forKey:key];
+						else
+							[result setObject:[NSNull null] forKey:key];
+					}
+				}
+			}
+		}
+	}
+	
+	return result;
 }
 
 @end

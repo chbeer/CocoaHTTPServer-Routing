@@ -13,7 +13,7 @@
 #import "HTTPMessage.h"
 #import "WebSocketRouteDefinition.h"
 
-#define HTTP_BODY_MAX_MEMORY_SIZE (1024)//(1024 * 1024)
+#define HTTP_BODY_MAX_MEMORY_SIZE (10 * 1024 * 1024)
 #define HTTP_ASYNC_FILE_RESPONSE_THRESHOLD (16 * 1024 * 1024)
 
 

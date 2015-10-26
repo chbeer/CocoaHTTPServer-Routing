@@ -14,11 +14,11 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/chbeer/CocoaHTTPServer-Routing.git", :tag => s.version }
 
-  s.source_files  = 'Extensions/Routing/*.{h,m}'
-  s.public_header_files = 'Extensions/Routing/*.h'
+  s.source_files  = 'Clases/*.{h,m}'
+  s.public_header_files = 'Clases/*.h'
 
   s.requires_arc = true
 
-  s.dependency 'CocoaHTTPServer'
+  s.dependency 'CocoaHTTPServer', '~> 2.3'
 
 end

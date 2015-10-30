@@ -5,19 +5,17 @@
 	<key>BuildMachineOSBuild</key>
 	<string>15B42</string>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>English</string>
+	<string>en</string>
 	<key>CFBundleExecutable</key>
-	<string>CocoaLumberjack</string>
-	<key>CFBundleIdentifier</key>
-	<string>com.deusty.CocoaLumberjack</string>
+	<string>CocoaAsyncSocket</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>CocoaLumberjack</string>
+	<string>CocoaAsyncSocket</string>
 	<key>CFBundlePackageType</key>
 	<string>FMWK</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.1.0</string>
+	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -40,5 +38,10 @@
 	<string>0710</string>
 	<key>DTXcodeBuild</key>
 	<string>7B85</string>
+	<key>UIDeviceFamily</key>
+	<array>
+		<integer>1</integer>
+		<integer>2</integer>
+	</array>
 </dict>
 </plist>

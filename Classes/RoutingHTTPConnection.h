@@ -6,7 +6,7 @@
 //  Copyright (c) 2011 Christian Beer. All rights reserved.
 //
 
-#import <CocoaHTTPServer/HTTPConnection.h>
+@import CocoaHTTPServer;
 
 @interface RoutingHTTPConnection : HTTPConnection
 

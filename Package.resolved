@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "cocoaasyncsocket",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/robbiehanson/CocoaAsyncSocket.git",
+      "state" : {
+        "revision" : "dbdc00669c1ced63b27c3c5f052ee4d28f10150c",
+        "version" : "7.6.5"
+      }
+    },
+    {
+      "identity" : "cocoahttpserver",
+      "kind" : "remoteSourceControl",
+      "location" : "https://chbeer@github.com/chbeer/CocoaHTTPServer.git",
+      "state" : {
+        "revision" : "0aa39ad33ed116a5a5fa3bb0ef940ad494446dae",
+        "version" : "2.5.2"
+      }
+    }
+  ],
+  "version" : 2
+}
